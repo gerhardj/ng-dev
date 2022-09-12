@@ -1,0 +1,18 @@
+###
+
+GET http://localhost:3000/skills
+Content-Type: application/json
+
+###
+# @name postedSkill
+POST http://localhost:3000/skills
+Content-Type: application/json
+
+{
+    "name": "new stuff",
+    "completed": false
+}
+
+###
+
+DELETE http://localhost:3000/skills/{{postedSkill.response.body.id}}
