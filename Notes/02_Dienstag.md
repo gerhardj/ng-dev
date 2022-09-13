@@ -13,3 +13,10 @@
     * ngModel geht auf das default attribut (zb bei checkbox auf "checked")
     * online editor: tinymce (tiny.cloud)
 * container-presenter pattern
+
+
+## Routing
+
+* router outlet verwenden, da wird dann jeweils die component/module ausgetauscht
+* routerLink, queryParams, fragment (Link in page (anchor tag))
+* keine Snapshots verwenden - paramMap: siehe beispiel paramMap (wenn sich routen ändern können)
