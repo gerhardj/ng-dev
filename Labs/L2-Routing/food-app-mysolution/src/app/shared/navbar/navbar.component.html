@@ -1,5 +1,8 @@
 <div class="menu">
-  <div class="menuItem" *ngFor="let item of navItems" [routerLink]="item.url">
+  <div class="menuItem navLink" *ngFor="let item of navItems"
+    [routerLink]="item.url"
+    routerLinkActive="navLinkActive"
+    [routerLinkActiveOptions]="{exact: true}">
     {{ item.title }}
   </div>
 </div>
