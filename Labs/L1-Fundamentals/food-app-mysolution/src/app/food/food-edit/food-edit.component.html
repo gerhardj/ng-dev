@@ -1,0 +1,19 @@
+
+<div *ngIf="foodItem">
+    <div class="editRow">
+        <p>Name:</p>
+        <input type="text"
+            [(ngModel)]="foodItem.name">
+    </div>
+    <div class="editRow">
+        <p>Calories:</p>
+        <input type="text"
+            [(ngModel)]="foodItem.calories">
+    </div>
+    <div class="editRow">
+        <p>Price:</p>
+        <input type="text"
+            [(ngModel)]="foodItem.price">
+    </div>
+    <button (click)="onSave()">Save</button>
+</div>

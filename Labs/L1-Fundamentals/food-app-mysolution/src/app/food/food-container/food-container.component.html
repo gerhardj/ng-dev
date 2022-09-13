@@ -1,0 +1,9 @@
+
+<app-food-list [food]=food
+    (foodSelected)="onFoodSelected($event)"
+    (foodDeleted)="onFoodDeleted($event)"></app-food-list>
+
+<hr>
+
+<app-food-edit [foodItem]=selectedFood
+    (saveFoodItem)="onFoodItemSave($event)"></app-food-edit>
