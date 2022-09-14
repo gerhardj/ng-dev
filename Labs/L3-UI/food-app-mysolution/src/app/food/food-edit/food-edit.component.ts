@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, RequiredValidator, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { FoodItem } from '../food.model';
 
 @Component({
@@ -24,13 +24,15 @@ export class FoodEditComponent implements OnInit {
   }
 
   onSave() {
-    this.saveFoodItem.emit({ ...this.foodItem , ...this.foodForm.value } as FoodItem);
+    if (this.foodForm.valid && this.foodForm.dirty) { // this includes new forms without any data
+      this.saveFoodItem.emit({ ...this.foodItem , ...this.foodForm.value } as FoodItem);
+    }
     this.foodItem = undefined;
   }
 
   ngOnChanges() {
     if (this.foodItem) {
-      this.foodForm.patchValue(this.foodItem);
+      this.foodForm.reset(this.foodItem);
     }
   }
 

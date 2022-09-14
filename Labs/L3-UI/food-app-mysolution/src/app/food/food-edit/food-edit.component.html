@@ -19,8 +19,10 @@
             <input matInput
             formControlName="calories">
         </mat-form-field>
-        <button mat-raised-button
+        <button mat-raised-button *ngIf="foodItem.id"
             [disabled]="foodForm.invalid"
-             type="submit">Save</button>
+            type="submit">{{foodForm.pristine ? "Close" : "Save"}}</button>
+        <button mat-raised-button *ngIf="!foodItem.id"
+            type="submit">{{foodForm.invalid ? "Cancel" : "Save"}}</button>
     </form>
 </mat-card>
