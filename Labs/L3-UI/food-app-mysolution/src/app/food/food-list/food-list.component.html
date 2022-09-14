@@ -1,0 +1,24 @@
+
+<table style="border: 1px solid black">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Calories</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of food" class="myrow">
+            <td>{{f.id}}</td>
+            <td>{{f.name}}</td>
+            <td>{{f.price | currency:"EUR" }}</td>
+            <td>{{f.calories}}</td>
+            <td>
+                <button (click)="editFood(f)">Edit</button>
+                <button (click)="deleteFood(f)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
