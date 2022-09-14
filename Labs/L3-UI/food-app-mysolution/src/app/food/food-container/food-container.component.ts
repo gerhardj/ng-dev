@@ -25,20 +25,26 @@ export class FoodContainerComponent implements OnInit {
 
   onFoodDeleted(fi: FoodItem) {
     console.log("in container delete listerner", fi);
-    this.food = this.food.filter(i => i.id != fi.id);
+    this.fs.deleteFoodItem(fi.id).subscribe((data) => {
+      this.food = this.food.filter(i => i.id != fi.id);
+    });
   }
 
   onFoodItemSave(fi: FoodItem) {
     console.log("save received", fi);
-
-    const clone = Object.assign([], this.food) as Array<FoodItem>;
-    let idx = clone.findIndex((c) => c.id == fi.id);
-    if (idx > -1) {
-      clone[idx] = fi;
+    if (fi.id) {
+      this.fs.updateFoodItem(fi).subscribe((data) => {
+        this.food = this.food.map(i => i.id == fi.id ? fi : i);
+      });
     } else {
-      clone.push(fi);
+      this.fs.addFoodItem(fi).subscribe((data) => {
+        this.food = [...this.food, data];
+      });
     }
-    this.food = clone;
-    
+    this.selectedFood = undefined;
+  }
+
+  onNewFoodItem() {
+    this.selectedFood = new FoodItem();
   }
 }

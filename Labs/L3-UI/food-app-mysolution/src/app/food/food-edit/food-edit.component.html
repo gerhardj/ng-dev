@@ -1,21 +1,26 @@
 
 <mat-card *ngIf="foodItem"
     fxLayout="column">
-    <mat-form-field appearance="fill">
-        <mat-label>Name</mat-label>
-        <input matInput
-            [(ngModel)]="foodItem.name">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Price</mat-label>
-        <input matInput
-            [(ngModel)]="foodItem.price">
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-        <mat-label>Calories</mat-label>
-        <input matInput
-            [(ngModel)]="foodItem.calories">
-    </mat-form-field>
-    <button mat-raised-button
-        (click)="onSave()">Save</button>
+    <form [formGroup]="foodForm"
+        (ngSubmit)="onSave()"
+    >
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput
+                formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput
+            formControlName="price">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Calories</mat-label>
+            <input matInput
+            formControlName="calories">
+        </mat-form-field>
+        <button mat-raised-button
+            [disabled]="foodForm.invalid"
+             type="submit">Save</button>
+    </form>
 </mat-card>
