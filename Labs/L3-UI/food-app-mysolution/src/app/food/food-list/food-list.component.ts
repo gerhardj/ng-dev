@@ -12,6 +12,8 @@ export class FoodListComponent implements OnInit {
   @Output() foodSelected = new EventEmitter<FoodItem>();
   @Output() foodDeleted = new EventEmitter<FoodItem>();
 
+  displayedColumns: string[] = ['name', 'price', 'calories', 'actions'];
+
   constructor() { }
 
   ngOnInit(): void {

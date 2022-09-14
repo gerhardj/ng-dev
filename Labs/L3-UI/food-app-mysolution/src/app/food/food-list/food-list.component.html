@@ -1,24 +1,59 @@
 
-<table style="border: 1px solid black">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Calories</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let f of food" class="myrow">
-            <td>{{f.id}}</td>
-            <td>{{f.name}}</td>
-            <td>{{f.price | currency:"EUR" }}</td>
-            <td>{{f.calories}}</td>
-            <td>
-                <button (click)="editFood(f)">Edit</button>
-                <button (click)="deleteFood(f)">Delete</button>
+<mat-card>
+
+    <table mat-table [dataSource]="food">
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="calories">
+            <th mat-header-cell *matHeaderCellDef> Calories </th>
+            <td mat-cell *matCellDef="let element"> {{element.calories}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef> Price </th>
+            <td mat-cell *matCellDef="let element"> {{element.price | currency:"EUR"}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-raised-button (click)="editFood(element)">Edit</button>
+                <button mat-stroked-button color="warn" (click)="deleteFood(element)">Delete</button>
             </td>
-        </tr>
-    </tbody>
-</table>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+
+    <!--
+    <table style="border: 1px solid black">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Calories</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let f of food" class="myrow">
+                <td>{{f.id}}</td>
+                <td>{{f.name}}</td>
+                <td>{{f.price | currency:"EUR" }}</td>
+                <td>{{f.calories}}</td>
+                <td>
+                    <button (click)="editFood(f)">Edit</button>
+                    <button (click)="deleteFood(f)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    -->
+</mat-card>

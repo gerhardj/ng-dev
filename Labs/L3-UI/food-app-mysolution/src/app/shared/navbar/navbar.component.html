@@ -1,8 +1,8 @@
-<div class="menu">
+<mat-toolbar color="primary">
   <div class="menuItem navLink" *ngFor="let item of navItems"
     [routerLink]="item.url"
     routerLinkActive="navLinkActive"
     [routerLinkActiveOptions]="{exact: true}">
     {{ item.title }}
   </div>
-</div>
+</mat-toolbar>
