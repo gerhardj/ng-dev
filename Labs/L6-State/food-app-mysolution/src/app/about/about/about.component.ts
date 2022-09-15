@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { interval, Observable, of, zip, throttle } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { interval, Observable, of, zip } from 'rxjs';
+import { first, map, take, tap, throttle, throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-about',
@@ -13,8 +13,12 @@ export class AboutComponent implements OnInit {
     .pipe(map((x: number) => x * 7))
     .pipe(map((value) => `I got ${value}`));
 
-  // secondObservable: Observable<any> = of("hello","bye","third")
-  //   .pipe(throttle(() => interval(1000));
+  secondObservable: Observable<string> = of("hello","bye","third")
+    .pipe(
+      throttleTime(1000, undefined, {leading: true, trailing: true}),
+      tap((data) => console.log(data)
+      )
+    );
 
   constructor() { }
 
