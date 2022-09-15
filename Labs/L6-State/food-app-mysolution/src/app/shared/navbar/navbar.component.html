@@ -1,8 +1,17 @@
 <mat-toolbar color="primary">
-  <div class="menuItem navLink" *ngFor="let item of navItems"
-    [routerLink]="item.url"
-    routerLinkActive="navLinkActive"
-    [routerLinkActiveOptions]="{exact: true}">
-    {{ item.title }}
-  </div>
+  <mat-toolbar-row fxLayoutGap="10px">
+    <div
+      fxHide.gt-xs
+      (click)="toggleMenu()"
+      class="clickable"
+    >
+      <mat-icon color="accent">menu</mat-icon>
+    </div>
+    <div class="menuItem navLink" *ngFor="let item of navItems"
+      [routerLink]="item.url"
+      routerLinkActive="navLinkActive"
+      [routerLinkActiveOptions]="{exact: true}">
+      {{ item.title }}
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>
