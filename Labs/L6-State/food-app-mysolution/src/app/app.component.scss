@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+.navbar{
+  background-color: lavender;
+  // height: 150px
+}
+
+.sidebar{
+  background-color: lightgray;
+  // min-width: 200px;
+  padding: 1rem;
+}
+
+.mainmain{
+  height: 100vh;
+}
+
+.main {
+  padding: 1rem;
+}

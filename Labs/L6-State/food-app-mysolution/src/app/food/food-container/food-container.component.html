@@ -1,0 +1,13 @@
+
+<app-food-list [food]=food
+    (foodSelected)="onFoodSelected($event)"
+    (foodDeleted)="onFoodDeleted($event)"></app-food-list>
+
+<hr>
+
+<app-food-edit [foodItem]=selectedFood
+    (saveFoodItem)="onFoodItemSave($event)"></app-food-edit>
+
+<button *ngIf="!selectedFood"
+    mat-raised-button color="primary"
+    (click)="onNewFoodItem()">Add Food Item</button>
