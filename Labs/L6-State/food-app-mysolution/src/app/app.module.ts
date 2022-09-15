@@ -7,11 +7,13 @@ import { NavbarComponent } from "./shared/navbar/navbar.component";
 import { SidemenuComponent } from "./shared/sidemenu/sidemenu.component";
 import { HomeComponent } from "./home/home.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { FormsModule } from "@angular/forms";
 import { AboutComponent } from './about/about/about.component';
 import { MaterialExampleModule } from "src/material.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { LoadingComponent } from './shared/loading/loading.component';
+import { LoadingInterceptor } from "./shared/loading-interceptor";
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     SidemenuComponent,
     HomeComponent,
     AboutComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,5 +34,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
     FlexLayoutModule
   ],
   bootstrap: [AppComponent],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+  ]
 })
 export class AppModule {}

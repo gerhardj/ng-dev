@@ -7,7 +7,7 @@
     <app-navbar></app-navbar>
   </div>
   
-  <!-- <div gdArea="loading"></div> -->
+  <div gdArea="loading"><app-loading *ngIf="ls.isLoading | async"></app-loading></div>
 
   <div gdArea="mainrow">
 

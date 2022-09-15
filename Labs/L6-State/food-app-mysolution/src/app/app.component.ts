@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { LoadingService } from "./shared/loading.service";
 import { MenuService } from "./shared/menu.service";
 import { SidemenuComponent } from "./shared/sidemenu/sidemenu.component";
 
@@ -11,7 +12,7 @@ export class AppComponent {
 
   mode: 'over'|'side' = 'side';
 
-  constructor(public ms: MenuService) {}
+  constructor(public ms: MenuService, public ls: LoadingService) {}
 
   ngOnInit() {
     this.ms.sideNavPosition.subscribe(data => this.mode = data);
