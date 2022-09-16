@@ -1,0 +1,32 @@
+<div class="mainmain"
+  gdAreas="navbar | loading | mainrow"
+  gdRows="max-content 0.8rem 1fr"
+>
+
+  <div gdArea="navbar">
+    <app-navbar></app-navbar>
+  </div>
+  
+  <div gdArea="loading"><app-loading *ngIf="ls.isLoading | async"></app-loading></div>
+
+  <div gdArea="mainrow">
+
+  <mat-sidenav-container>
+    <mat-sidenav class="sidebar" #sidenav [opened]="ms.sideNavVisible | async" [mode]="mode">
+      <app-sidemenu></app-sidemenu>
+    </mat-sidenav>
+    <mat-sidenav-content [ngStyle]="" class="main">
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+
+
+    <!-- <div gdArea="sidebar" class="sidebar" fxHide.lt-md>
+      <app-sidemenu></app-sidemenu>
+    </div>
+    <div gdArea="main" class="main">
+      <router-outlet></router-outlet>
+    </div> -->
+  </div>
+</div>

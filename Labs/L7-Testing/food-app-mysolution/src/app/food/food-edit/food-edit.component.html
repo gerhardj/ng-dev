@@ -1,0 +1,28 @@
+
+<mat-card *ngIf="foodItem"
+    fxLayout="column">
+    <form [formGroup]="foodForm"
+        (ngSubmit)="onSave()"
+    >
+        <mat-form-field appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput
+                formControlName="name">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Price</mat-label>
+            <input matInput
+            formControlName="price">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Calories</mat-label>
+            <input matInput
+            formControlName="calories">
+        </mat-form-field>
+        <button mat-raised-button *ngIf="foodItem.id"
+            [disabled]="foodForm.invalid"
+            type="submit">{{foodForm.pristine ? "Close" : "Save"}}</button>
+        <button mat-raised-button *ngIf="!foodItem.id"
+            type="submit">{{foodForm.invalid ? "Cancel" : "Save"}}</button>
+    </form>
+</mat-card>
