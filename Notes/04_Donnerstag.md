@@ -34,8 +34,21 @@
 
 * Cypress (siehe Code)
 
+* gefunden - unklar ob gut: food-app-mysolution
+
 ## Updating (Einschub)
 
 * `ng update ... --dirty --force`
 * `npm outdated`
 * Empfehlung: Häufig updaten (geht sogar mit breaking changes wegen der schematics)
+
+## Authentication
+
+* üblich JWT
+* token based, OAuth2, OpenID, ...
+* Firebase (leicht für den Einstieg) (Googles Cloud für Webapps)
+    * im Webinterface Projekt anlegen und Authentifizierung hinzufügen
+    * Config ins Angular Projekt kopieren
+    * `ng add @angular/fire` (Copilot) | `npm install firebase @angular/fire` (Kurs)
+    * `ng g guard auth --skip-tests` (Copilot)
+* Fassadenservice: wie bei Firebase (ein kleiner Service der nur die Lib aufruft)
