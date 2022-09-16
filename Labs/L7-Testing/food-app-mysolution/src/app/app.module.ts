@@ -14,6 +14,7 @@ import { MaterialExampleModule } from "src/material.module";
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { LoadingComponent } from './shared/loading/loading.component';
 import { LoadingInterceptor } from "./shared/loading-interceptor";
+import { FbauthModule } from "./fbauth/fbauth.module";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoadingInterceptor } from "./shared/loading-interceptor";
     HttpClientModule,
     FormsModule,
     MaterialExampleModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FbauthModule
   ],
   bootstrap: [AppComponent],
   providers: [

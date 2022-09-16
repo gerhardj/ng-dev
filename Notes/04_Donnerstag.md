@@ -52,3 +52,15 @@
     * `ng add @angular/fire` (Copilot) | `npm install firebase @angular/fire` (Kurs)
     * `ng g guard auth --skip-tests` (Copilot)
 * Fassadenservice: wie bei Firebase (ein kleiner Service der nur die Lib aufruft)
+
+
+## Final Tipps und Tricks
+
+* Youtube Tutorials (einzige Quelle für Instructor)
+    * ng-conf
+    * Joshua Morony
+    * Decoded Frontend
+    * Angular University (Copilot)
+    * Programming with Mosh (selbst gefunden)
+    * Fireship (selbst gefunden)
+    * Morpheus Tutorials (selbst gefunden)
